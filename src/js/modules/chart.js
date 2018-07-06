@@ -59,9 +59,9 @@ module.exports =  {
 
     createChart: function() {
         var $target = $('.uit-chart');
-        var margin = {top: 0, left: 140, right: 20, bottom: 0};
+        var margin = {top: 0, left: 190, right: 20, bottom: 0};
         var width = $target.width();
-        var height = 500;
+        var height = 600;
 
         $('.uit-chart svg').remove();
 
@@ -75,7 +75,7 @@ module.exports =  {
 
         var y = d3.scaleBand()
             .range([0, height])
-            .padding(0.4);
+            .padding(0.6);
 
         var x = d3.scaleLinear()
             .range([0, width]);
@@ -126,10 +126,17 @@ module.exports =  {
             .attr('transform', function(d) { return 'translate(' + 0 + ',' + (margin.top + y(d.name)) + ')' });
 
         judge.append('text')
-            .attr('x', 0)
-            .attr('y', (y.bandwidth() / 2) + 10)
+            .attr('x', y.bandwidth() + 12)
+            .attr('y', (y.bandwidth() / 2) + 6)
             .attr('class', 'uit-chart__judge-name')
-            .text(function(d) { return d.name });
+            .text(function(d) { var names = d.name.split(' '); console.log(names); return names[names.length - 1] });
+
+        judge.append('svg:image')
+            .attr('xlink:href', function(d) { return '{{ path }}/assets/' + d.name.replace(/ /g, '-').toLowerCase() + '.jpg' })
+            .attr('x', 0)
+            .attr('y', -4)
+            .attr('width', y.bandwidth() + 8)
+            .attr('height', y.bandwidth() + 8);
 
         judge.append('rect')
             .attr('class', 'uit-chart__judge-bar')
