@@ -19,11 +19,7 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-            fs.writeFileSync(path + '/' + fileName + '.js', buf.toString()
-                .replace(/\{\{ path \}\}/g, absolutePath)
-                .replace(/\{\{path\}\}/g, absolutePath)
-                .replace(/\{\{ data \}\}/g, fs.readFileSync('./.data/data.json', 'utf8'))
-            );
+            fs.writeFileSync(path + '/' + fileName + '.js', buf.toString().replace(/\{\{ path \}\}/g, absolutePath).replace(/\{\{path\}\}/g, absolutePath));
             isDone = true;
             console.log('Updated ' + fileName + ' js!');
         });

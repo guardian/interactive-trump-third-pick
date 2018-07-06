@@ -1,4 +1,3 @@
-var data = JSON.parse('{{ data }}');
 var windowTop, windowHeight, steps;
 
 module.exports =  {
