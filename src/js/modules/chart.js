@@ -7,14 +7,34 @@ var d3 = Object.assign(
 )
 
 var data = [{
+      'name': 'Ruth Bader Ginsburg',
+      'born': 1933,
+      'started': 1993
+  },
+  {
+      'name': 'Stephen Breyer',
+      'born': 1938,
+      'started': 1994
+  },
+  {
+      'name': 'Sonia Sotomayor',
+      'born': 1954,
+      'started': 2009
+  },
+  {
+      'name': 'Elena Kagan',
+      'born': 1960,
+      'started': 2010
+  },
+  {
+      'name': 'Anthony Kennedy',
+      'born': 1936,
+      'started': 1988
+  },
+  {
         'name': 'John Roberts',
         'born': 1955,
         'started': 2005
-    },
-    {
-        'name': 'Anthony Kennedy',
-        'born': 1936,
-        'started': 1988
     },
     {
         'name': 'Clarence Thomas',
@@ -22,29 +42,9 @@ var data = [{
         'started': 1991
     },
     {
-        'name': 'Ruth Bader Ginsburg',
-        'born': 1933,
-        'started': 1993
-    },
-    {
-        'name': 'Stephen Breyer',
-        'born': 1938,
-        'started': 1994
-    },
-    {
         'name': 'Samuel Alito',
         'born': 1950,
         'started': 2006
-    },
-    {
-        'name': 'Sonia Sotomayor',
-        'born': 1954,
-        'started': 2009
-    },
-    {
-        'name': 'Elena Kagan',
-        'born': 1960,
-        'started': 2010
     },
     {
         'name': 'Neil Gorsuch',
