@@ -1,0 +1,100 @@
+.uit-body {
+    p {
+        @include bodyCopy();
+        margin-bottom: 18px;
+    }
+
+    a {
+        color: $c-red;
+        border-bottom: 1px solid rgba($c-red, 0.3);
+
+        &:hover {
+            text-decoration: none;
+            border-bottom-color: $c-red;
+        }
+    }
+
+    p.source {
+        font-size: 16px;
+        color: $c-grey;
+        font-family: 'Guardian Sans Web';
+
+        a {
+            color: $c-grey;
+            border-bottom: 1px solid $c-grey;
+        }
+    }
+}
+
+.uit-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.uit-step {
+    position: relative;
+    z-index: 5;
+    background-color: $c-white;
+    border-left: 1px solid $c-light-grey;
+    border-top: 1px solid $c-light-grey;
+    padding: 6px;
+    margin-bottom: 80vh;
+}
+
+.uit-step__title {
+    font-size: 20px;
+    font-family: 'Guardian Egyptian Web';
+    font-weight: 700;
+    color: $c-black;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.uit-map {
+    padding: 24px 0;
+
+    &.is-fixed {
+        position: fixed;
+        top: 20vh;
+        width: 620px;
+        max-width: calc(100% - 20px);
+
+        @include mq(mobileLandscape) {
+            max-width: calc(100% - 40px);
+        }
+
+        @include mq(tablet) {
+            max-width: 100%;
+        }
+    }
+
+    g path {
+        transition: 0.6s linear all;
+    }
+}
+
+@mixin colourStep($name, $color) {
+    .uit-step[data-step='#{$name}'] {
+        .uit-step__title {
+            color: $color;
+        }
+    }
+
+    .uit-map g.is-#{$name} .st0 {
+        fill: $color;
+    }
+
+    .uit-map.is-#{$name} g.is-bad .st0 {
+        opacity: .3;
+    }
+
+    .uit-map.is-#{$name} g.is-#{$name} .st0 {
+        opacity: 1;
+        fill: $color !important;
+    }
+}
+
+@include colourStep('antiChoiceLegislature', $c-light-red);
+@include colourStep('ageLimit', $c-red);
+@include colourStep('triggerLaws', $c-dark-red);
