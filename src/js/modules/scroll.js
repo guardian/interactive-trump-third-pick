@@ -38,6 +38,18 @@ module.exports =  {
         }
     },
 
+    setStep: function() {
+        var stepToShow = null;
+
+        $('.uit-step').each(function(i, el) {
+            if (windowTop > $(el).offset().top - this.percentageOfHeight(75)) {
+                stepToShow = $(el).data('step');
+            }
+        }.bind(this));
+
+        this.highlightStates(stepToShow);
+    },
+
     percentageOfHeight: function(percentage) {
         return (windowHeight / 100) * percentage;
     },
