@@ -4,6 +4,7 @@
 
 .uit-chart__judge-served {
     fill: $c-light-red;
+    display: none;
 }
 
 .uit-chart__judge-name {
@@ -27,6 +28,10 @@
         fill: $c-black;
         text-anchor: middle;
     }
+}
+
+.uit-chart__reference {
+    display: none;
 }
 
 .uit-chart__reference-label {
