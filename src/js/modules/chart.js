@@ -59,7 +59,7 @@ module.exports =  {
 
     createChart: function() {
         var $target = $('.uit-chart');
-        var margin = {top: 0, left: 140, right: 0, bottom: 0};
+        var margin = {top: 0, left: 140, right: 20, bottom: 0};
         var width = $target.width();
         var height = 500;
 
@@ -107,11 +107,12 @@ module.exports =  {
 
         judge.append('text')
             .attr('x', 0)
-            .attr('y', (y.bandwidth() / 2) + 20)
+            .attr('y', (y.bandwidth() / 2) + 10)
             .attr('class', 'uit-chart__judge-name')
             .text(function(d) { return d.name });
 
         judge.append('rect')
+            .attr('class', 'uit-chart__judge-bar')
             .attr('x', function(d) { return x(d.born) + margin.left })
             .attr('y', 0)
             .attr('width', function(d) { return x(2018) - x(d.born)})

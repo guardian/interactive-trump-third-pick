@@ -1,3 +1,26 @@
-.uit-chart {
-    
+.uit-chart__judge-bar {
+    fill: $c-red;
+}
+
+.uit-chart__judge-name {
+    font-family: 'Guardian Sans Web';
+    font-size: 16px;
+    fill: $c-black;
+}
+
+.uit-chart__grid-lines {
+    .domain {
+        display: none;
+    }
+
+    line {
+        stroke: $c-light-grey;
+    }
+
+    text {
+        font-size: 16px;
+        font-family: 'Guardian Sans Web';
+        fill: $c-black;
+        text-anchor: middle;
+    }
 }
