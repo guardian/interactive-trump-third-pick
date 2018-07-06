@@ -7,4 +7,4 @@ var scroll = require('./modules/scroll.js');
 
 chart.init();
 share.init();
-// scroll.init();
+scroll.init();
