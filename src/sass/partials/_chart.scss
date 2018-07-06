@@ -1,10 +1,14 @@
+.uit-chart__judge {
+    transition: opacity 0.4s ease-in;
+}
+
 .uit-chart__judge-bar {
     fill: $c-red;
 }
 
 .uit-chart__judge-served {
     fill: $c-light-red;
-    display: none;
+    opacity: 0;
 }
 
 .uit-chart__judge-name {
@@ -31,7 +35,8 @@
 }
 
 .uit-chart__reference {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
 }
 
 .uit-chart__reference-label {
@@ -39,4 +44,74 @@
     font-family: 'Guardian Sans Web';
     fill: $c-black;
     text-anchor: middle;
+}
+
+// steps
+.uit-chart {
+    &.is-introduction {
+        .uit-chart__reference--next-election {
+            opacity: 1;
+        }
+    }
+
+    &.is-retirement {
+        .uit-chart__reference--oldest-judge {
+            opacity: 1;
+        }
+
+        .uit-chart__judge--john-roberts,
+        .uit-chart__judge--anthony-kennedy,
+        .uit-chart__judge--clarence-thomas,
+        .uit-chart__judge--samuel-alito,
+        .uit-chart__judge--sonia-sotomayor,
+        .uit-chart__judge--elena-kagan,
+        .uit-chart__judge--neil-gorsuch {
+            opacity: 0.3;
+        }
+    }
+
+    &.is-died {
+        .uit-chart__reference--oldest-judge {
+            opacity: 1;
+        }
+
+        .uit-chart__judge--john-roberts,
+        .uit-chart__judge--anthony-kennedy,
+        .uit-chart__judge--clarence-thomas,
+        .uit-chart__judge--stephen-breyer,
+        .uit-chart__judge--samuel-alito,
+        .uit-chart__judge--sonia-sotomayor,
+        .uit-chart__judge--elena-kagan,
+        .uit-chart__judge--neil-gorsuch {
+            opacity: 0.3;
+        }
+    }
+
+    &.is-thomas {
+        .uit-chart__judge-bar {
+            fill: transparent;
+            stroke: $c-red;
+        }
+
+        .uit-chart__judge-served {
+            opacity: 1;
+        }
+
+        .uit-chart__judge--john-roberts,
+        .uit-chart__judge--anthony-kennedy,
+        .uit-chart__judge--ruth-bader-ginsburg,
+        .uit-chart__judge--stephen-breyer,
+        .uit-chart__judge--samuel-alito,
+        .uit-chart__judge--sonia-sotomayor,
+        .uit-chart__judge--elena-kagan,
+        .uit-chart__judge--neil-gorsuch {
+            opacity: 0.3;
+        }
+    }
+
+    &.is-midterms {
+        .uit-chart__reference--midterms {
+            opacity: 1;
+        }
+    }
 }

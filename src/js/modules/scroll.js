@@ -1,9 +1,16 @@
-var windowTop, windowHeight, steps, chartHeight;
+var windowTop, windowHeight, steps = [], chartHeight;
 
 module.exports =  {
     init: function() {
         this.bindings();
+        this.getSteps();
         this.onScroll();
+    },
+
+    getSteps: function() {
+        $('.uit-step').each(function(i, el) {
+            steps.push($(el).attr('data-step'));
+        }.bind(this));
     },
 
     bindings: function() {
@@ -19,7 +26,7 @@ module.exports =  {
     onScroll: function() {
         this.updateValues();
         this.fixMap();
-        //this.setStep();
+        this.setStep();
     },
 
     updateValues: function() {
@@ -48,6 +55,16 @@ module.exports =  {
         }.bind(this));
 
         this.highlightStates(stepToShow);
+    },
+
+    highlightStates: function(currentStep) {
+        for (var step in steps) {
+            $('.uit-chart').removeClass('is-' + steps[step])
+        }
+
+        
+
+        $('.uit-chart').addClass('is-' + currentStep);
     },
 
     percentageOfHeight: function(percentage) {

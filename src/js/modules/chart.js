@@ -129,7 +129,7 @@ module.exports =  {
             .attr('x', y.bandwidth() + 12)
             .attr('y', (y.bandwidth() / 2) + 6)
             .attr('class', 'uit-chart__judge-name')
-            .text(function(d) { var names = d.name.split(' '); console.log(names); return names[names.length - 1] });
+            .text(function(d) { return d.name; var names = d.name.split(' '); return names[names.length - 1] });
 
         judge.append('svg:image')
             .attr('xlink:href', function(d) { return '{{ path }}/assets/' + d.name.replace(/ /g, '-').toLowerCase() + '.jpg' })
