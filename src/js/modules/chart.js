@@ -81,7 +81,7 @@ module.exports =  {
             .range([0, width]);
 
         y.domain(data.map(function(d) { return d.name }));
-        x.domain([1930, 2022]);
+        x.domain([1930, 2030]);
 
         svg.append('g')
             .attr('class', 'uit-chart__grid-lines')
@@ -94,6 +94,26 @@ module.exports =  {
             .selectAll('.tick text')
             .attr('y', 12)
             .attr('x', 0);
+
+        function addReference(label, year) {
+            var ref = svg.append('g')
+                .attr('class', 'uit-chart__reference uit-chart__reference--' + label.replace(/ /g, '-').toLowerCase())
+                .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 12)');
+
+            ref.append('rect')
+                .attr('class', 'uit-chart__reference-line')
+                .attr('y', 0)
+                .attr('width', 1)
+                .attr('height', height + margin.top + margin.top);
+
+            ref.append('text')
+                .attr('class', 'uit-chart__reference-label')
+                .text(label);
+        }
+
+        addReference('Next election', 2022);
+        addReference('Oldest Judge', 2023);
+        addReference('Midterms', 2020);
 
         var chart = svg.append('g')
             .attr('class', 'uit-chart__judges');
@@ -116,6 +136,13 @@ module.exports =  {
             .attr('x', function(d) { return x(d.born) + margin.left })
             .attr('y', 0)
             .attr('width', function(d) { return x(2018) - x(d.born)})
-            .attr('height', y.bandwidth())
+            .attr('height', y.bandwidth());
+
+        judge.append('rect')
+            .attr('class', 'uit-chart__judge-served')
+            .attr('x', function(d) { return x(d.started) + margin.left })
+            .attr('y', 0)
+            .attr('width', function(d) { return x(2018) - x(d.started) })
+            .attr('height', y.bandwidth());
     }
 };
