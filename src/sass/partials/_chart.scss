@@ -171,7 +171,8 @@
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--stephen-breyer,
-        .uit-chart__judge--neil-gorsuch {
+        .uit-chart__judge--neil-gorsuch,
+        .uit-chart__judge--anthony-kennedy {
             opacity: 0.8;
 
             .uit-chart__judge-bar{
@@ -190,7 +191,7 @@
     }
 
     &.is-died {
-        .uit-chart__reference--oldest-judge {
+        .uit-chart__reference--average-retirement {
             opacity: 1;
         }
 
@@ -200,7 +201,8 @@
         .uit-chart__judge--samuel-alito,
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
-        .uit-chart__judge--neil-gorsuch {
+        .uit-chart__judge--neil-gorsuch,
+        .uit-chart__judge--anthony-kennedy {
             opacity: 0.8;
 
             .uit-chart__judge-bar{
