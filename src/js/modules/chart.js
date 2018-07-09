@@ -61,7 +61,7 @@ module.exports =  {
         var $target = $('.uit-chart');
         var margin = {top: 0, left: 190, right: 20, bottom: 0};
         var width = $target.width();
-        var height = 600;
+        var height = 500;
 
         $('.uit-chart svg').remove();
 
@@ -92,7 +92,7 @@ module.exports =  {
                 .tickFormat(function(d) { return d })
             )
             .selectAll('.tick text')
-            .attr('y', 12)
+            .attr('y', 20)
             .attr('x', 0);
 
         function addReference(label, year) {
@@ -102,9 +102,12 @@ module.exports =  {
 
             ref.append('rect')
                 .attr('class', 'uit-chart__reference-line')
-                .attr('y', 0)
+                .attr('y', 10)
                 .attr('width', 1)
-                .attr('height', height + margin.top + margin.top);
+                .attr('stroke', "black")
+                .attr('stroke-dasharray', "4, 16")
+                .attr('fill', "none")
+                .attr('height', height);
 
             ref.append('text')
                 .attr('class', 'uit-chart__reference-label')
@@ -112,7 +115,8 @@ module.exports =  {
         }
 
         addReference('Next election', 2022);
-        addReference('Oldest Judge', 2023);
+        addReference('Oldest Judge', 1928);
+        addReference('Longest Serving', 1982);
         addReference('Midterms', 2020);
 
         var chart = svg.append('g')
