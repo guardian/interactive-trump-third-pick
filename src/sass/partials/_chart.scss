@@ -1,4 +1,3 @@
-
 .uit-chart {
     padding: 24px 0;
 
@@ -19,6 +18,43 @@
 
     g path {
         transition: 0.3s linear all;
+    }
+}
+
+.uit-chart__keys {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 24px;
+}
+
+.uit-chart__key {
+    position: absolute;
+    left: 0;
+    font-family: 'Guardian Sans Web';
+    font-size: 16px;
+    color: $c-black;
+    padding: 0 12px 0 10px;
+    float: left;
+    transition: 0.3s opacity linear;
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: .25em;
+        width: 6px;
+        height: 1em;
+        border-radius: 2px;
+        background-color: $c-red;
+    }
+}
+
+.uit-chart__key--served {
+    opacity: 0;
+
+    &:before {
+        background-color: $c-light-red;
     }
 }
 
@@ -186,6 +222,14 @@
                 transition-delay: .3s;
             }
 
+        }
+
+        .uit-chart__key--served {
+            opacity: 1;
+        }
+
+        .uit-chart__key--age {
+            opacity: 0;
         }
 
         .tick {
