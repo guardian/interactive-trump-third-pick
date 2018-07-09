@@ -74,12 +74,6 @@
     transition: opacity .4s ease-in;
 }
 
-.uit-chart__judge--anthony-kennedy {
-  .uit-chart__judge-bar{
-  fill: $c-dark-grey;
-}
-}
-
 .uit-chart__judge-name {
     font-family: 'Guardian Sans Web';
     font-size: 16px;
@@ -117,7 +111,6 @@
 
 // steps
 .uit-chart {
-
     &.is-introduction {
         .uit-chart__reference--next-election {
             opacity: 1;
@@ -170,6 +163,7 @@
         .uit-chart__judge--john-roberts,
         .uit-chart__judge--clarence-thomas,
         .uit-chart__judge--stephen-breyer,
+        .uit-chart__judge--anthony-kennedy,
         .uit-chart__judge--samuel-alito,
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
@@ -193,14 +187,10 @@
     }
 
     &.is-thomas {
-
         .uit-chart__judge-bar {
-            //opacity: 0;
-            //transform: scale(2, 1);
-            transition: transform 1s ease-in;
-            transition: fill .5s ease-in;
-            fill: $c-light-red;
-
+            fill: $c-light-grey;
+            opacity: 1;
+            transition: opacity 0.4s ease-in;
         }
 
         .uit-chart__reference--longest-serving {
@@ -208,9 +198,9 @@
         }
 
         .uit-chart__judge-served {
-            //opacity: 1;
-            transition: fill .5s ease-in;
-            fill: $c-light-red;
+            opacity: 1;
+            transition: opacity .5s ease-in;
+            transition-delay: .3s;
         }
 
         .uit-chart__judge--john-roberts,
@@ -222,16 +212,16 @@
         .uit-chart__judge--neil-gorsuch {
             opacity: 1;
 
-            .uit-chart__judge-served {
-                //opacity: .2;
-                transition: opacity .5s ease-in;
-            }
-        }
-        .uit-chart__judge--anthony-kennedy {
             .uit-chart__judge-bar{
-              fill: $c-dark-grey;
+              fill: $c-light-grey;
               transition: fill .4s ease-in;
             }
+            .uit-chart__judge-served {
+                opacity: .2;
+                transition: opacity .5s ease-in;
+                transition-delay: .3s;
+            }
+
         }
 
         .uit-chart__key--served {

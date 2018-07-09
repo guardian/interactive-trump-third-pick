@@ -27,6 +27,11 @@ var data = [{
       'started': 2010
   },
   {
+      'name': 'Anthony Kennedy',
+      'born': 1936,
+      'started': 1988
+  },
+  {
         'name': 'John Roberts',
         'born': 1955,
         'started': 2005
@@ -45,11 +50,6 @@ var data = [{
         'name': 'Neil Gorsuch',
         'born': 1967,
         'started': 2017
-    },
-    {
-        'name': 'Anthony Kennedy',
-        'born': 1936,
-        'started': 1988
     }];
 
 module.exports =  {
@@ -157,11 +157,13 @@ module.exports =  {
             .attr('x', function(d) { return x(d.born) + margin.left })
             .attr('y', 0)
             .attr('width', function(d) { return x(2018) - x(d.born)})
-            .attr('height', y.bandwidth())
-            .attr('data-started_width', function(d) { return x(2018) - x(d.started)})
-            .attr('data-started_x', function(d) { return x(d.started) + margin.left })
-            .attr('data-original_width', function(d) { return x(2018) - x(d.born)})
-            .attr('data-original_x', function(d) { return x(d.born) + margin.left });
+            .attr('height', y.bandwidth());
 
+        judge.append('rect')
+            .attr('class', 'uit-chart__judge-served')
+            .attr('x', function(d) { return x(d.started) + margin.left })
+            .attr('y', 0)
+            .attr('width', function(d) { return x(2018) - x(d.started) })
+            .attr('height', y.bandwidth());
     }
 };
