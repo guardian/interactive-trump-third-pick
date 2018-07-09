@@ -27,11 +27,6 @@ var data = [{
       'started': 2010
   },
   {
-      'name': 'Anthony Kennedy',
-      'born': 1936,
-      'started': 1988
-  },
-  {
         'name': 'John Roberts',
         'born': 1955,
         'started': 2005
@@ -50,6 +45,11 @@ var data = [{
         'name': 'Neil Gorsuch',
         'born': 1967,
         'started': 2017
+    },
+    {
+        'name': 'Anthony Kennedy',
+        'born': 1936,
+        'started': 1988
     }];
 
 module.exports =  {

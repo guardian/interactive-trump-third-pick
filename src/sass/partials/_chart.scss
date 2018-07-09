@@ -21,6 +21,12 @@
     }
 }
 
+.uit-chart__judge--anthony-kennedy {
+  .uit-chart__judge-bar{
+    fill: $c-dark-grey;
+}
+}
+
 .uit-chart__keys {
     padding: 0;
     margin: 0;
@@ -163,7 +169,6 @@
         .uit-chart__judge--john-roberts,
         .uit-chart__judge--clarence-thomas,
         .uit-chart__judge--stephen-breyer,
-        .uit-chart__judge--anthony-kennedy,
         .uit-chart__judge--samuel-alito,
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
@@ -187,10 +192,16 @@
     }
 
     &.is-thomas {
+
+      .uit-chart__judge--anthony-kennedy {
+        .uit-chart__judge-served{
+          fill: $c-dark-grey;
+      }
+      }
         .uit-chart__judge-bar {
             fill: $c-light-grey;
-            opacity: 1;
-            transition: opacity 0.4s ease-in;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
         }
 
         .uit-chart__reference--longest-serving {
@@ -200,7 +211,6 @@
         .uit-chart__judge-served {
             opacity: 1;
             transition: opacity .5s ease-in;
-            transition-delay: .3s;
         }
 
         .uit-chart__judge--john-roberts,
@@ -215,11 +225,12 @@
             .uit-chart__judge-bar{
               fill: $c-light-grey;
               transition: fill .4s ease-in;
+              opacity: 0;
+              transition: opacity 0.3s ease-in;
             }
             .uit-chart__judge-served {
-                opacity: .2;
+                opacity: .5;
                 transition: opacity .5s ease-in;
-                transition-delay: .3s;
             }
 
         }
