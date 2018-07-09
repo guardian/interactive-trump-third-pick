@@ -118,11 +118,21 @@ module.exports =  {
             .attr('class', function(d) { return 'uit-chart__judge uit-chart__judge--' + d.name.replace(/ /g, '-').toLowerCase() })
             .attr('transform', function(d) { return 'translate(' + 0 + ',' + (margin.top + y(d.name)) + ')' });
 
-        judge.append('text')
-            .attr('x', y.bandwidth() + 12)
-            .attr('y', (y.bandwidth() / 2) + 6)
-            .attr('class', 'uit-chart__judge-name')
-            .text(function(d) { return d.name; var names = d.name.split(' '); return names[names.length - 1] });
+            judge.append('text')
+                .attr('x', y.bandwidth() + 12)
+                .attr('y', (y.bandwidth() / 2) + 6)
+                .attr('class', 'uit-chart__judge-name is-full')
+                .text(function(d) { return d.name; });
+
+
+            judge.append('text')
+                .attr('x', y.bandwidth() + 12)
+                .attr('y', (y.bandwidth() / 2) + 6)
+                .attr('class', 'uit-chart__judge-name is-abbreviated')
+                .text(function(d) {
+                  var names = d.name.split(' ');
+                  return names[names.length - 1]
+                });
 
         judge.append('svg:image')
             .attr('xlink:href', function(d) { return '{{ path }}/assets/' + d.name.replace(/ /g, '-').toLowerCase() + '.jpg' })
