@@ -64,7 +64,9 @@
     }
 }
 
-.uit-chart__judge {
+.uit-chart__judge,
+.uit-chart__judge-name,
+.uit-chart__judge-image {
     transition: opacity 0.4s ease-in;
 }
 
@@ -135,7 +137,10 @@
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--ruth-bader-ginsburg,
         .uit-chart__judge--neil-gorsuch {
-            opacity: 0.8;
+            .uit-chart__judge-name,
+            .uit-chart__judge-image {
+                opacity: .3;
+            }
 
             .uit-chart__judge-bar{
                 fill: $c-light-grey;
@@ -156,8 +161,10 @@
         .uit-chart__judge--stephen-breyer,
         .uit-chart__judge--neil-gorsuch,
         .uit-chart__judge--anthony-kennedy {
-            opacity: 0.8;
-
+            .uit-chart__judge-name,
+            .uit-chart__judge-image {
+                opacity: .3;
+            }
             .uit-chart__judge-bar{
                 fill: $c-light-grey;
             }
@@ -177,7 +184,10 @@
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--neil-gorsuch,
         .uit-chart__judge--anthony-kennedy {
-            opacity: 0.8;
+            .uit-chart__judge-name,
+            .uit-chart__judge-image {
+                opacity: .3;
+            }
 
             .uit-chart__judge-bar{
                 fill: $c-light-grey;
@@ -214,7 +224,10 @@
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--neil-gorsuch,
         .uit-chart__judge--anthony-kennedy {
-            opacity: 1;
+            .uit-chart__judge-name,
+            .uit-chart__judge-image {
+                opacity: .3;
+            }
 
             .uit-chart__judge-bar {
                 fill: $c-light-grey;
