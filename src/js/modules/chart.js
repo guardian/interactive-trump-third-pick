@@ -67,7 +67,7 @@ module.exports =  {
     createChart: function() {
         var $target = $('.uit-chart');
         var isMobile = $(window).width() < 480;
-        var margin = {top: 40, left: isMobile ? 120 : 190, right: 20, bottom: 12};
+        var margin = {top: 28, left: isMobile ? 120 : 190, right: 20, bottom: 34};
         var width = $target.width();
         var height = 450;
 
@@ -101,11 +101,12 @@ module.exports =  {
             )
 
         svg.selectAll('.tick text')
-            .attr('y', 12)
+            .attr('y', height + margin.top + 30)
             .attr('x', 0)
 
         svg.selectAll('.tick line')
-            .attr('y1', 20);
+            .attr('y1', 26)
+            .attr('y2', height + margin.top + 10)
 
         var chart = svg.append('g')
             .attr('class', 'uit-chart__judges');
@@ -147,17 +148,18 @@ module.exports =  {
         function addReference(label, year) {
             var ref = svg.append('g')
                 .attr('class', 'uit-chart__reference uit-chart__reference--' + label.replace(/ /g, '-').toLowerCase())
-                .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 12)');
+                .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 0)');
 
             ref.append('line')
                 .attr('class', 'uit-chart__reference-line')
-                .attr('y1', 8)
-                .attr('y2', height + margin.top)
+                .attr('y1', 26)
+                .attr('y2', height + margin.top + 10)
                 .attr('stroke', "black")
                 .attr('stroke-dasharray', "4, 4");
 
             ref.append('text')
                 .attr('class', 'uit-chart__reference-label')
+                .attr('y', 18)
                 .text(label);
         }
 

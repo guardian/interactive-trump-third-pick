@@ -3,7 +3,7 @@
 
     &.is-fixed {
         position: fixed;
-        top: 10vh;
+        top: 15vh;
         width: 620px;
         max-width: calc(100% - 20px);
 
@@ -98,7 +98,7 @@
     text {
         font-size: 16px;
         font-family: 'Guardian Sans Web';
-        fill: $c-black;
+        fill: $c-dark-grey;
         text-anchor: middle;
     }
 }
@@ -121,14 +121,6 @@
         .uit-chart__reference--next-election {
             opacity: 1;
         }
-        .tick {
-          text {
-            opacity: .1;
-          }
-          line {
-            opacity: .4;
-          }
-        }
     }
 
     &.is-breyer {
@@ -147,15 +139,6 @@
 
             .uit-chart__judge-bar{
                 fill: $c-light-grey;
-            }
-        }
-
-        .tick {
-            text {
-                opacity: .1;
-            }
-            line {
-                opacity: .4;
             }
         }
     }
@@ -179,15 +162,6 @@
                 fill: $c-light-grey;
             }
         }
-
-        .tick {
-            text {
-                opacity: .1;
-            }
-            line {
-                opacity: .4;
-            }
-        }
     }
 
     &.is-died {
@@ -207,15 +181,6 @@
 
             .uit-chart__judge-bar{
                 fill: $c-light-grey;
-            }
-        }
-
-        .tick {
-            text {
-                opacity: .1;
-            }
-            line {
-                opacity: .4;
             }
         }
     }
@@ -247,18 +212,26 @@
         .uit-chart__judge--samuel-alito,
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
-        .uit-chart__judge--neil-gorsuch {
+        .uit-chart__judge--neil-gorsuch,
+        .uit-chart__judge--anthony-kennedy {
             opacity: 1;
 
-            .uit-chart__judge-bar{
+            .uit-chart__judge-bar {
                 fill: $c-light-grey;
                 transition: fill .4s ease-in;
                 opacity: 0;
                 transition: opacity 0.3s ease-in;
             }
+
             .uit-chart__judge-served {
-                opacity: .5;
+                fill: lighten($c-light-red, 30%);
                 transition: opacity .5s ease-in;
+            }
+        }
+
+        .uit-chart__judge--anthony-kennedy, {
+            .uit-chart__judge-served {
+                fill: $c-light-grey;
             }
         }
 
@@ -269,29 +242,11 @@
         .uit-chart__key--age {
             opacity: 0;
         }
-
-        .tick {
-            text {
-                opacity: .1;
-            }
-            line {
-                opacity: .4;
-            }
-        }
     }
 
     &.is-midterms {
         .uit-chart__reference--midterms {
             opacity: 1;
-        }
-
-        .tick {
-          text {
-            opacity: .1;
-          }
-          line {
-            opacity: .4;
-          }
         }
     }
 }
