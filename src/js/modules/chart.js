@@ -135,6 +135,7 @@ module.exports =  {
                 });
 
         judge.append('svg:image')
+            .attr('class', 'uit-chart__judge-image')
             .attr('xlink:href', function(d) { return '{{ path }}/assets/' + d.name.replace(/ /g, '-').toLowerCase() + '.jpg' })
             .attr('x', 0)
             .attr('y', -4)
