@@ -59,9 +59,9 @@ module.exports =  {
 
     createChart: function() {
         var $target = $('.uit-chart');
-        var margin = {top: 12, left: 190, right: 20, bottom: 0};
+        var margin = {top: 40, left: 190, right: 20, bottom: 12};
         var width = $target.width();
-        var height = 500;
+        var height = 450;
 
         $('.uit-chart svg').remove();
 
@@ -73,15 +73,17 @@ module.exports =  {
         width = width - margin.left - margin.right;
         height = height - margin.top - margin.bottom;
 
+        console.log(height);
+
         var y = d3.scaleBand()
             .range([0, height])
-            .padding(0.5);
+            .paddingInner(0.3);
 
         var x = d3.scaleLinear()
             .range([0, width]);
 
         y.domain(data.map(function(d) { return d.name }));
-        x.domain([1930, 2030]);
+        x.domain([1920, 2030]);
 
         svg.append('g')
             .attr('class', 'uit-chart__grid-lines')
@@ -107,7 +109,7 @@ module.exports =  {
             ref.append('line')
                 .attr('class', 'uit-chart__reference-line')
                 .attr('y1', 8)
-                .attr('y2', height)
+                .attr('y2', height + margin.top)
                 .attr('stroke', "black")
                 .attr('stroke-dasharray', "4, 4");
 
