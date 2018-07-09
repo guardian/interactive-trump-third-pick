@@ -59,7 +59,7 @@ module.exports =  {
 
     createChart: function() {
         var $target = $('.uit-chart');
-        var margin = {top: 0, left: 190, right: 20, bottom: 0};
+        var margin = {top: 12, left: 190, right: 20, bottom: 0};
         var width = $target.width();
         var height = 500;
 
@@ -75,7 +75,7 @@ module.exports =  {
 
         var y = d3.scaleBand()
             .range([0, height])
-            .padding(0.6);
+            .padding(0.5);
 
         var x = d3.scaleLinear()
             .range([0, width]);
@@ -91,23 +91,25 @@ module.exports =  {
                 .tickSize(-(height + margin.top + margin.bottom))
                 .tickFormat(function(d) { return d })
             )
-            .selectAll('.tick text')
-            .attr('y', 20)
-            .attr('x', 0);
+
+        svg.selectAll('.tick text')
+            .attr('y', 12)
+            .attr('x', 0)
+
+        svg.selectAll('.tick line')
+            .attr('y1', 20);
 
         function addReference(label, year) {
             var ref = svg.append('g')
                 .attr('class', 'uit-chart__reference uit-chart__reference--' + label.replace(/ /g, '-').toLowerCase())
                 .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 12)');
 
-            ref.append('rect')
+            ref.append('line')
                 .attr('class', 'uit-chart__reference-line')
-                .attr('y', 10)
-                .attr('width', 1)
+                .attr('y1', 8)
+                .attr('y2', height)
                 .attr('stroke', "black")
-                .attr('stroke-dasharray', "4, 16")
-                .attr('fill', "none")
-                .attr('height', height);
+                .attr('stroke-dasharray', "4, 4");
 
             ref.append('text')
                 .attr('class', 'uit-chart__reference-label')
