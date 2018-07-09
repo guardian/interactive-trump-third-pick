@@ -53,18 +53,30 @@ module.exports =  {
                 stepToShow = $(el).data('step');
             }
         }.bind(this));
-
         this.highlightStates(stepToShow);
+        //what you need to do is check if a class is active; when it is, you change the css rule to have it change size from the data attribute
     },
 
     highlightStates: function(currentStep) {
         for (var step in steps) {
             $('.uit-chart').removeClass('is-' + steps[step])
         }
-
-        
-
         $('.uit-chart').addClass('is-' + currentStep);
+
+
+        if ($('.uit-chart').hasClass('is-thomas')){
+          $('.uit-chart__judge-bar').each(function(i, el) {
+              $(el).attr('width', $(el).data('started_width'));
+              $(el).attr('x', $(el).data('started_x'));
+          }.bind(this));
+        } else {
+          $('.uit-chart__judge-bar').each(function(i, el) {
+            $(el).attr('width', $(el).data('original_width'));
+            $(el).attr('x', $(el).data('original_x'));
+          }.bind(this));
+
+        }
+
     },
 
     percentageOfHeight: function(percentage) {
