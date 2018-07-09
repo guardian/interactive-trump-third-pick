@@ -54,7 +54,14 @@ var data = [{
 
 module.exports =  {
     init: function() {
-        this.createChart()
+        this.createChart();
+        this.bindings();
+    },
+
+    bindings: function() {
+        $(window).resize(function() {
+            this.createChart();
+        }.bind(this));
     },
 
     createChart: function() {
@@ -72,8 +79,6 @@ module.exports =  {
 
         width = width - margin.left - margin.right;
         height = height - margin.top - margin.bottom;
-
-        console.log(height);
 
         var y = d3.scaleBand()
             .range([0, height])
