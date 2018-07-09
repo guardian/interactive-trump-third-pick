@@ -54,14 +54,22 @@ var data = [{
 
 module.exports =  {
     init: function() {
-        this.createChart()
+        this.createChart();
+        this.bindings();
+    },
+
+    bindings: function() {
+        $(window).resize(function() {
+            this.createChart();
+        }.bind(this));
     },
 
     createChart: function() {
         var $target = $('.uit-chart');
-        var margin = {top: 0, left: 190, right: 20, bottom: 0};
+        var isMobile = $(window).width() < 480;
+        var margin = {top: 40, left: isMobile ? 120 : 190, right: 20, bottom: 12};
         var width = $target.width();
-        var height = 500;
+        var height = 450;
 
         $('.uit-chart svg').remove();
 
@@ -75,39 +83,41 @@ module.exports =  {
 
         var y = d3.scaleBand()
             .range([0, height])
-            .padding(0.6);
+            .paddingInner(0.3);
 
         var x = d3.scaleLinear()
             .range([0, width]);
 
         y.domain(data.map(function(d) { return d.name }));
-        x.domain([1930, 2030]);
+        x.domain([1920, 2030]);
 
         svg.append('g')
             .attr('class', 'uit-chart__grid-lines')
             .attr('transform', 'translate(' + margin.left + ', 0)')
             .call(d3.axisTop(x)
-                .ticks(10)
+                .ticks(isMobile ? 5 : 10)
                 .tickSize(-(height + margin.top + margin.bottom))
                 .tickFormat(function(d) { return d })
             )
-            .selectAll('.tick text')
-            .attr('y', 20)
-            .attr('x', 0);
+
+        svg.selectAll('.tick text')
+            .attr('y', 12)
+            .attr('x', 0)
+
+        svg.selectAll('.tick line')
+            .attr('y1', 20);
 
         function addReference(label, year) {
             var ref = svg.append('g')
                 .attr('class', 'uit-chart__reference uit-chart__reference--' + label.replace(/ /g, '-').toLowerCase())
                 .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 12)');
 
-            ref.append('rect')
+            ref.append('line')
                 .attr('class', 'uit-chart__reference-line')
-                .attr('y', 10)
-                .attr('width', 1)
+                .attr('y1', 8)
+                .attr('y2', height + margin.top)
                 .attr('stroke', "black")
-                .attr('stroke-dasharray', "4, 16")
-                .attr('fill', "none")
-                .attr('height', height);
+                .attr('stroke-dasharray', "4, 4");
 
             ref.append('text')
                 .attr('class', 'uit-chart__reference-label')
