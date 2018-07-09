@@ -1,3 +1,28 @@
+
+.uit-chart {
+    padding: 24px 0;
+
+    &.is-fixed {
+        position: fixed;
+        top: 15vh;
+        width: 620px;
+        max-width: calc(100% - 20px);
+
+        @include mq(mobileLandscape) {
+            max-width: calc(100% - 40px);
+        }
+
+        @include mq(tablet) {
+            max-width: 100%;
+        }
+    }
+
+    g path {
+        transition: 0.6s linear all;
+    }
+}
+
+
 .uit-chart__judge {
     transition: opacity 0.4s ease-in;
 }
