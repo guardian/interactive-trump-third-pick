@@ -66,7 +66,8 @@ module.exports =  {
 
     createChart: function() {
         var $target = $('.uit-chart');
-        var margin = {top: 40, left: 190, right: 20, bottom: 12};
+        var isMobile = $(window).width() < 480;
+        var margin = {top: 40, left: isMobile ? 120 : 190, right: 20, bottom: 12};
         var width = $target.width();
         var height = 450;
 
@@ -94,7 +95,7 @@ module.exports =  {
             .attr('class', 'uit-chart__grid-lines')
             .attr('transform', 'translate(' + margin.left + ', 0)')
             .call(d3.axisTop(x)
-                .ticks(10)
+                .ticks(isMobile ? 5 : 10)
                 .tickSize(-(height + margin.top + margin.bottom))
                 .tickFormat(function(d) { return d })
             )
