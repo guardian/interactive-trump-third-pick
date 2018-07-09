@@ -131,6 +131,35 @@
         }
     }
 
+    &.is-breyer {
+        .uit-chart__reference--average-retirement {
+            opacity: 1;
+        }
+
+        .uit-chart__judge--john-roberts,
+        .uit-chart__judge--clarence-thomas,
+        .uit-chart__judge--samuel-alito,
+        .uit-chart__judge--sonia-sotomayor,
+        .uit-chart__judge--elena-kagan,
+        .uit-chart__judge--ruth-bader-ginsburg,
+        .uit-chart__judge--neil-gorsuch {
+            opacity: 0.8;
+
+            .uit-chart__judge-bar{
+                fill: $c-light-grey;
+            }
+        }
+
+        .tick {
+            text {
+                opacity: .1;
+            }
+            line {
+                opacity: .4;
+            }
+        }
+    }
+
     &.is-retirement {
         .uit-chart__reference--oldest-judge {
             opacity: 1;
@@ -141,23 +170,22 @@
         .uit-chart__judge--samuel-alito,
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
+        .uit-chart__judge--stephen-breyer,
         .uit-chart__judge--neil-gorsuch {
             opacity: 0.8;
-            transition: opacity 0.4s ease-in;
 
             .uit-chart__judge-bar{
-              fill: $c-light-grey;
-              transition: fill .4s ease-in;
+                fill: $c-light-grey;
             }
         }
 
         .tick {
-          text {
-            opacity: .1;
-          }
-          line {
-            opacity: .4;
-          }
+            text {
+                opacity: .1;
+            }
+            line {
+                opacity: .4;
+            }
         }
     }
 
@@ -174,37 +202,35 @@
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--neil-gorsuch {
             opacity: 0.8;
-            transition: opacity 0.4s ease-in;
+
             .uit-chart__judge-bar{
-              fill: $c-light-grey;
-              transition: fill .4s ease-in;
+                fill: $c-light-grey;
             }
         }
 
         .tick {
-          text {
-            opacity: .1;
-          }
-          line {
-            opacity: .4;
-          }
+            text {
+                opacity: .1;
+            }
+            line {
+                opacity: .4;
+            }
         }
     }
 
     &.is-thomas {
+        .uit-chart__judge--anthony-kennedy {
+            .uit-chart__judge-served{
+                fill: $c-dark-grey;
+            }
+        }
 
-      .uit-chart__judge--anthony-kennedy {
-        .uit-chart__judge-served{
-          fill: $c-dark-grey;
-      }
-      }
         .uit-chart__judge-bar {
             fill: $c-light-grey;
             opacity: 0;
-            transition: opacity 0.3s ease-in;
         }
 
-        .uit-chart__reference--longest-serving {
+        .uit-chart__reference--average-time-served {
             opacity: 1;
         }
 
@@ -223,16 +249,15 @@
             opacity: 1;
 
             .uit-chart__judge-bar{
-              fill: $c-light-grey;
-              transition: fill .4s ease-in;
-              opacity: 0;
-              transition: opacity 0.3s ease-in;
+                fill: $c-light-grey;
+                transition: fill .4s ease-in;
+                opacity: 0;
+                transition: opacity 0.3s ease-in;
             }
             .uit-chart__judge-served {
                 opacity: .5;
                 transition: opacity .5s ease-in;
             }
-
         }
 
         .uit-chart__key--served {
@@ -244,12 +269,12 @@
         }
 
         .tick {
-          text {
-            opacity: .1;
-          }
-          line {
-            opacity: .4;
-          }
+            text {
+                opacity: .1;
+            }
+            line {
+                opacity: .4;
+            }
         }
     }
 

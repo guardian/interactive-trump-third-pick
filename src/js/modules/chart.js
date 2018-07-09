@@ -95,7 +95,7 @@ module.exports =  {
             .attr('class', 'uit-chart__grid-lines')
             .attr('transform', 'translate(' + margin.left + ', 0)')
             .call(d3.axisTop(x)
-                .ticks(isMobile ? 5 : 10)
+                .ticks(isMobile ? 5 : 6)
                 .tickSize(-(height + margin.top + margin.bottom))
                 .tickFormat(function(d) { return d })
             )
@@ -106,28 +106,6 @@ module.exports =  {
 
         svg.selectAll('.tick line')
             .attr('y1', 20);
-
-        function addReference(label, year) {
-            var ref = svg.append('g')
-                .attr('class', 'uit-chart__reference uit-chart__reference--' + label.replace(/ /g, '-').toLowerCase())
-                .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 12)');
-
-            ref.append('line')
-                .attr('class', 'uit-chart__reference-line')
-                .attr('y1', 8)
-                .attr('y2', height + margin.top)
-                .attr('stroke', "black")
-                .attr('stroke-dasharray', "4, 4");
-
-            ref.append('text')
-                .attr('class', 'uit-chart__reference-label')
-                .text(label);
-        }
-
-        addReference('Next election', 2020);
-        addReference('Oldest Judge', 1928);
-        addReference('Longest Serving', 1982);
-        addReference('Midterms', 2019);
 
         var chart = svg.append('g')
             .attr('class', 'uit-chart__judges');
@@ -165,5 +143,28 @@ module.exports =  {
             .attr('y', 0)
             .attr('width', function(d) { return x(2018) - x(d.started) })
             .attr('height', y.bandwidth());
+
+        function addReference(label, year) {
+            var ref = svg.append('g')
+                .attr('class', 'uit-chart__reference uit-chart__reference--' + label.replace(/ /g, '-').toLowerCase())
+                .attr('transform', 'translate(' + ( x(year) + margin.left) + ', 12)');
+
+            ref.append('line')
+                .attr('class', 'uit-chart__reference-line')
+                .attr('y1', 8)
+                .attr('y2', height + margin.top)
+                .attr('stroke', "black")
+                .attr('stroke-dasharray', "4, 4");
+
+            ref.append('text')
+                .attr('class', 'uit-chart__reference-label')
+                .text(label);
+        }
+
+        addReference('Next election', 2020);
+        addReference('Oldest Judge', 1928);
+        addReference('Average time served', 1990);
+        addReference('Average Retirement', 1937);
+        addReference('Midterms', 2019);
     }
 };
