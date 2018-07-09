@@ -114,10 +114,10 @@ module.exports =  {
                 .text(label);
         }
 
-        addReference('Next election', 2022);
+        addReference('Next election', 2020);
         addReference('Oldest Judge', 1928);
         addReference('Longest Serving', 1982);
-        addReference('Midterms', 2020);
+        addReference('Midterms', 2019);
 
         var chart = svg.append('g')
             .attr('class', 'uit-chart__judges');

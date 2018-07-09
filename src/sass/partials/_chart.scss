@@ -18,10 +18,9 @@
     }
 
     g path {
-        transition: 0.4s linear all;
+        transition: 0.3s linear all;
     }
 }
-
 
 .uit-chart__judge {
     transition: opacity 0.4s ease-in;
@@ -29,11 +28,14 @@
 
 .uit-chart__judge-bar {
     fill: $c-red;
+    transition: opacity 0.4s ease-in;
+    transition: fill .4s ease-in;
 }
 
 .uit-chart__judge-served {
     fill: $c-light-red;
     opacity: 0;
+    transition: opacity .4s ease-in;
 }
 
 .uit-chart__judge-name {
@@ -98,7 +100,13 @@
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--neil-gorsuch {
-            opacity: 0.2;
+            opacity: 0.8;
+            transition: opacity 0.4s ease-in;
+
+            .uit-chart__judge-bar{
+              fill: $c-light-grey;
+              transition: fill .4s ease-in;
+            }
         }
 
         .tick {
@@ -119,11 +127,17 @@
         .uit-chart__judge--john-roberts,
         .uit-chart__judge--clarence-thomas,
         .uit-chart__judge--stephen-breyer,
+        .uit-chart__judge--anthony-kennedy,
         .uit-chart__judge--samuel-alito,
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--neil-gorsuch {
-            opacity: 0.2;
+            opacity: 0.8;
+            transition: opacity 0.4s ease-in;
+            .uit-chart__judge-bar{
+              fill: $c-light-grey;
+              transition: fill .4s ease-in;
+            }
         }
 
         .tick {
@@ -138,8 +152,9 @@
 
     &.is-thomas {
         .uit-chart__judge-bar {
-            fill: $c-red;
-            stroke: $c-red;
+            fill: $c-light-grey;
+            opacity: 1;
+            transition: opacity 0.4s ease-in;
         }
 
         .uit-chart__reference--longest-serving {
@@ -148,7 +163,8 @@
 
         .uit-chart__judge-served {
             opacity: 1;
-            transition: opacity 0.4s ease-in;
+            transition: opacity .5s ease-in;
+            transition-delay: .3s;
         }
 
         .uit-chart__judge--john-roberts,
@@ -158,7 +174,18 @@
         .uit-chart__judge--sonia-sotomayor,
         .uit-chart__judge--elena-kagan,
         .uit-chart__judge--neil-gorsuch {
-            opacity: 0.2;
+            opacity: 1;
+
+            .uit-chart__judge-bar{
+              fill: $c-light-grey;
+              transition: fill .4s ease-in;
+            }
+            .uit-chart__judge-served {
+                opacity: .2;
+                transition: opacity .5s ease-in;
+                transition-delay: .3s;
+            }
+
         }
 
         .tick {
