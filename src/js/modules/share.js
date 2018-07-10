@@ -1,5 +1,5 @@
 var pageUrl = window.location.href.split('#')[0],
-    shareCopy = '24 US states could ban abortion in two years';
+    shareCopy = 'Could Trump get a third supreme court pick?';
 
 module.exports =  {
     init: function() {
