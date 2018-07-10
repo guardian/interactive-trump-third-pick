@@ -3,7 +3,7 @@
 
     &.is-fixed {
         position: fixed;
-        top: 5vh;
+        top: 1vh;
         width: 620px;
         max-width: calc(100% - 20px);
 
@@ -13,7 +13,7 @@
 
         @include mq(tablet) {
             max-width: 100%;
-            top: 15vh;
+            top: 10vh;
         }
     }
 
@@ -103,6 +103,21 @@
         font-family: 'Guardian Sans Web';
         fill: $c-dark-grey;
         text-anchor: middle;
+    }
+}
+
+.tick {
+    @include mq($until: 480px) {
+        text {
+            opacity: 0;
+        }
+    }
+
+    &:first-of-type,
+    &:last-of-type {
+        text {
+            opacity: 1;
+        }
     }
 }
 

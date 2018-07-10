@@ -95,7 +95,7 @@ module.exports =  {
             .attr('class', 'uit-chart__grid-lines')
             .attr('transform', 'translate(' + margin.left + ', 0)')
             .call(d3.axisTop(x)
-                .ticks(isMobile ? 5 : 6)
+                .ticks(isMobile ? 10 : 6)
                 .tickSize(-(height + margin.top + margin.bottom))
                 .tickFormat(function(d) { return d })
             )

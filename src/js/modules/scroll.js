@@ -36,7 +36,7 @@ module.exports =  {
     },
 
     fixMap: function() {
-        if (windowTop > $('.uit-chart__point').offset().top - this.percentageOfHeight(15)) {
+        if (windowTop > $('.uit-chart__point').offset().top - ($(window).width() > 768 ? this.percentageOfHeight(10) : this.percentageOfHeight(1))) {
             $('.uit-chart').addClass('is-fixed');
             $('.uit-chart__point').attr('style', 'margin-bottom:' + chartHeight + 'px;');
         } else {
@@ -61,8 +61,6 @@ module.exports =  {
         for (var step in steps) {
             $('.uit-chart').removeClass('is-' + steps[step])
         }
-
-        
 
         $('.uit-chart').addClass('is-' + currentStep);
     },
