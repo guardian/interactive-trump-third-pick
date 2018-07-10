@@ -131,13 +131,17 @@
     fill: $c-black;
     text-anchor: middle;
 }
+.uit-chart__reference--next-election,  {
+    .uit-chart__reference-label {
+      transform: translateX(-10px);
+    }
+}
 
 // steps
 .uit-chart {
     &.is-introduction {
         .uit-chart__reference--next-election {
             opacity: 1;
-
         }
     }.uit-chart {
         padding: 24px 0;
