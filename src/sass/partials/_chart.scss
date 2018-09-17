@@ -1,9 +1,10 @@
 .uit-chart {
     padding: 24px 0;
+    position: relative;
 
     &.is-fixed {
         position: fixed;
-        top: 1vh;
+        top: 5vh;
         width: 620px;
         max-width: calc(100% - 20px);
 
@@ -12,8 +13,9 @@
         }
 
         @include mq(tablet) {
-            max-width: 100%;
-            top: 10vh;
+            width: 60vw;
+            height: 80vh;
+            top: 5vh;
         }
     }
 
@@ -23,9 +25,9 @@
 }
 
 .uit-chart__judge--anthony-kennedy {
-  .uit-chart__judge-bar{
-    fill: $c-dark-grey;
-}
+    .uit-chart__judge-bar{
+        fill: $c-dark-grey;
+    }
 }
 
 .uit-chart__keys {
@@ -57,497 +59,147 @@
     }
 }
 
-.uit-chart__key--served {
-    opacity: 0;
-
-    &:before {
-        background-color: $c-light-red;
-    }
-}
-
-.uit-chart__judge,
-.uit-chart__judge-name,
-.uit-chart__judge-image {
-    transition: opacity 0.4s ease-in;
-}
-
-.uit-chart__judge-bar {
-    fill: $c-red;
-    transition: opacity 0.4s ease-in;
-    transition: fill .4s ease-in;
-}
-
-.uit-chart__judge-served {
-    fill: $c-light-red;
-    opacity: 0;
-    transition: opacity .4s ease-in;
-}
-
-.uit-chart__judge-name {
-    font-family: 'Guardian Sans Web';
-    font-size: 16px;
-    fill: $c-black;
-}
-
-.uit-chart__grid-lines {
-    .domain {
-        display: none;
-    }
-
-    line {
-        stroke: $c-light-grey;
-    }
-
-    text {
-        font-size: 16px;
-        font-family: 'Guardian Sans Web';
-        fill: $c-dark-grey;
-        text-anchor: middle;
-    }
-}
-
-.tick {
-    @include mq($until: 480px) {
-        text {
-            opacity: 0;
-        }
-    }
-
-    &:first-of-type,
-    &:last-of-type {
-        text {
-            opacity: 1;
-        }
-    }
-}
-
-.uit-chart__reference {
-    opacity: 0;
-    transition: opacity 0.6s ease-in;
-}
-
-.is-full{
-	  display: none;
-	  @include mq(tablet) {
-	  display: block;
-	  }
-	}
-
-.is-abbreviated{
-	  display: block;
-	  @include mq(tablet) {
-	      display: none;
-	  }
-	}
-
-.uit-chart__reference-label {
-    font-size: 16px;
-    font-family: 'Guardian Sans Web';
-    fill: $c-black;
-    text-anchor: middle;
-}
-.uit-chart__reference--next-election,  {
-    .uit-chart__reference-label {
-      transform: translateX(-10px);
-    }
-}
-
 // steps
 .uit-chart {
+    #forest_pic, #dead_trees_pic, #recover, #acres_2018, #acres_2100, #worst_pic {
+        opacity: 0;
+        transition: 0.4s linear all;
+    }
+
     &.is-introduction {
-        .uit-chart__reference--next-election {
+        #forest_pic {
             opacity: 1;
-        }
-    }.uit-chart {
-        padding: 24px 0;
-
-        &.is-fixed {
-            position: fixed;
-            top: 5vh;
-            width: 620px;
-            max-width: calc(100% - 20px);
-
-            @include mq(mobileLandscape) {
-                max-width: calc(100% - 40px);
-            }
-
-            @include mq(tablet) {
-                max-width: 100%;
-                top: 15vh;
-            }
-        }
-
-        g path {
-            transition: 0.3s linear all;
+            transition: 0.4s linear all;
         }
     }
 
-    .uit-chart__judge--anthony-kennedy {
-      .uit-chart__judge-bar{
-        fill: $c-dark-grey;
-    }
-    }
-
-    .uit-chart__keys {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        height: 24px;
-    }
-
-    .uit-chart__key {
-        position: absolute;
-        left: 0;
-        font-family: 'Guardian Sans Web';
-        font-size: 16px;
-        color: $c-black;
-        padding: 0 12px 0 10px;
-        float: left;
-        transition: 0.3s opacity linear;
-
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: .25em;
-            width: 6px;
-            height: 1em;
-            border-radius: 2px;
-            background-color: $c-red;
-        }
-    }
-
-    .uit-chart__key--served {
-        opacity: 0;
-
-        &:before {
-            background-color: $c-light-red;
-        }
-    }
-
-    .uit-chart__judge {
-        transition: opacity 0.4s ease-in;
-    }
-
-    .uit-chart__judge-bar {
-        fill: $c-red;
-        transition: opacity 0.4s ease-in;
-        transition: fill .4s ease-in;
-    }
-
-    .uit-chart__judge-served {
-        fill: $c-light-red;
-        opacity: 0;
-        transition: opacity .4s ease-in;
-    }
-
-    .uit-chart__judge-name {
-        font-family: 'Guardian Sans Web';
-        font-size: 16px;
-        fill: $c-black;
-    }
-
-    .uit-chart__grid-lines {
-        .domain {
-            display: none;
-        }
-
-        line {
-            stroke: $c-light-grey;
-        }
-
-        text {
-            font-size: 16px;
-            font-family: 'Guardian Sans Web';
-            fill: $c-dark-grey;
-            text-anchor: middle;
-        }
-    }
-
-    .uit-chart__reference {
-        opacity: 0;
-        transition: opacity 0.6s ease-in;
-    }
-
-    .uit-chart__reference-label {
-        font-size: 16px;
-        font-family: 'Guardian Sans Web';
-        fill: $c-black;
-        text-anchor: middle;
-    }
-
-    // steps
-    .uit-chart {
-        &.is-introduction {
-            .uit-chart__reference--next-election {
-                opacity: 1;
-            }
-        }
-
-        &.is-breyer {
-            .uit-chart__reference--average-retirement {
-                opacity: 1;
-            }
-
-            .uit-chart__judge--john-roberts,
-            .uit-chart__judge--clarence-thomas,
-            .uit-chart__judge--samuel-alito,
-            .uit-chart__judge--sonia-sotomayor,
-            .uit-chart__judge--elena-kagan,
-            .uit-chart__judge--ruth-bader-ginsburg,
-            .uit-chart__judge--neil-gorsuch {
-                opacity: 0.8;
-
-                .uit-chart__judge-bar{
-                    fill: $c-light-grey;
-                }
-            }
-        }
-
-        &.is-retirement {
-            .uit-chart__reference--oldest-judge {
-                opacity: 1;
-            }
-
-            .uit-chart__judge--john-roberts,
-            .uit-chart__judge--clarence-thomas,
-            .uit-chart__judge--samuel-alito,
-            .uit-chart__judge--sonia-sotomayor,
-            .uit-chart__judge--elena-kagan,
-            .uit-chart__judge--stephen-breyer,
-            .uit-chart__judge--neil-gorsuch,
-            .uit-chart__judge--anthony-kennedy {
-                opacity: 0.8;
-
-                .uit-chart__judge-bar{
-                    fill: $c-light-grey;
-                }
-            }
-        }
-
-        &.is-died {
-            .uit-chart__reference--average-retirement {
-                opacity: 1;
-            }
-
-            .uit-chart__judge--john-roberts,
-            .uit-chart__judge--clarence-thomas,
-            .uit-chart__judge--stephen-breyer,
-            .uit-chart__judge--samuel-alito,
-            .uit-chart__judge--sonia-sotomayor,
-            .uit-chart__judge--elena-kagan,
-            .uit-chart__judge--neil-gorsuch,
-            .uit-chart__judge--anthony-kennedy {
-                opacity: 0.8;
-
-                .uit-chart__judge-bar{
-                    fill: $c-light-grey;
-                }
-            }
-        }
-
-        &.is-thomas {
-            .uit-chart__judge--anthony-kennedy {
-                .uit-chart__judge-served{
-                    fill: $c-dark-grey;
-                }
-            }
-
-            .uit-chart__judge-bar {
-                fill: $c-light-grey;
-                opacity: 0;
-            }
-
-            .uit-chart__reference--average-time-served {
-                opacity: 1;
-            }
-
-            .uit-chart__judge-served {
-                opacity: 1;
-                transition: opacity .5s ease-in;
-            }
-
-            .uit-chart__judge--john-roberts,
-            .uit-chart__judge--ruth-bader-ginsburg,
-            .uit-chart__judge--stephen-breyer,
-            .uit-chart__judge--samuel-alito,
-            .uit-chart__judge--sonia-sotomayor,
-            .uit-chart__judge--elena-kagan,
-            .uit-chart__judge--neil-gorsuch,
-            .uit-chart__judge--anthony-kennedy {
-                opacity: 1;
-
-                .uit-chart__judge-bar {
-                    fill: $c-light-grey;
-                    transition: fill .4s ease-in;
-                    opacity: 0;
-                    transition: opacity 0.3s ease-in;
-                }
-
-                .uit-chart__judge-served {
-                    fill: lighten($c-light-red, 30%);
-                    transition: opacity .5s ease-in;
-                }
-            }
-
-            .uit-chart__judge--anthony-kennedy, {
-                .uit-chart__judge-served {
-                    fill: $c-light-grey;
-                }
-            }
-
-            .uit-chart__key--served {
-                opacity: 1;
-            }
-
-            .uit-chart__key--age {
-                opacity: 0;
-            }
-        }
-
-        &.is-midterms {
-            .uit-chart__reference--midterms {
-                opacity: 1;
-            }
-        }
-    }
-
-
-    &.is-breyer {
-        .uit-chart__reference--average-retirement {
+    &.is-dead {
+        #dead_trees_pic {
             opacity: 1;
+            transition: 0.4s linear all;
         }
-
-        .uit-chart__judge--john-roberts,
-        .uit-chart__judge--clarence-thomas,
-        .uit-chart__judge--samuel-alito,
-        .uit-chart__judge--sonia-sotomayor,
-        .uit-chart__judge--elena-kagan,
-        .uit-chart__judge--ruth-bader-ginsburg,
-        .uit-chart__judge--neil-gorsuch {
-            .uit-chart__judge-name,
-            .uit-chart__judge-image {
-                opacity: .3;
-            }
-
-            .uit-chart__judge-bar{
-                fill: $c-light-grey;
-            }
-        }
-    }
-
-    &.is-retirement {
-        .uit-chart__reference--oldest-judge {
+        #forest_pic {
             opacity: 1;
-        }
-
-        .uit-chart__judge--john-roberts,
-        .uit-chart__judge--clarence-thomas,
-        .uit-chart__judge--samuel-alito,
-        .uit-chart__judge--sonia-sotomayor,
-        .uit-chart__judge--elena-kagan,
-        .uit-chart__judge--stephen-breyer,
-        .uit-chart__judge--neil-gorsuch,
-        .uit-chart__judge--anthony-kennedy {
-            .uit-chart__judge-name,
-            .uit-chart__judge-image {
-                opacity: .3;
-            }
-            .uit-chart__judge-bar{
-                fill: $c-light-grey;
-            }
+            transition: 0.4s linear all;
         }
     }
 
-    &.is-died {
-        .uit-chart__reference--average-retirement {
+    &.is-recover {
+        #recover {
             opacity: 1;
+            transition: 0.4s linear all;
         }
-
-        .uit-chart__judge--john-roberts,
-        .uit-chart__judge--clarence-thomas,
-        .uit-chart__judge--stephen-breyer,
-        .uit-chart__judge--samuel-alito,
-        .uit-chart__judge--sonia-sotomayor,
-        .uit-chart__judge--elena-kagan,
-        .uit-chart__judge--neil-gorsuch,
-        .uit-chart__judge--anthony-kennedy {
-            .uit-chart__judge-name,
-            .uit-chart__judge-image {
-                opacity: .3;
-            }
-
-            .uit-chart__judge-bar{
-                fill: $c-light-grey;
-            }
+        #forest_pic,
+        #dead_trees_pic {
+            opacity: 1;
+            transition: 0.4s linear all;
         }
     }
 
-    &.is-thomas {
-        .uit-chart__judge--anthony-kennedy {
-            .uit-chart__judge-served{
-                fill: $c-dark-grey;
-            }
-        }
-
-        .uit-chart__judge-bar {
-            fill: $c-light-grey;
+    &.is-temp {
+        #recover,
+        #forest_pic,
+        #dead_trees_pic {
             opacity: 0;
+            transition: 0.4s linear all;
         }
-
-        .uit-chart__reference--average-time-served {
+        #cali_state polyline,
+        #cali_state path,
+        #cali_state g, {
+            fill: #ff7f0f;
+            transition: 0.4s linear all;
+        }
+        #_067_Sacramento {
             opacity: 1;
+            transition: 0.4s linear all;
+            fill: #c70000;
+            stroke: #c70000;
         }
+    }
 
-        .uit-chart__judge-served {
+    &.is-2018 {
+        #dead_trees_pic {
             opacity: 1;
-            transition: opacity .5s ease-in;
+            transition: 0.4s linear all;
         }
-
-        .uit-chart__judge--john-roberts,
-        .uit-chart__judge--ruth-bader-ginsburg,
-        .uit-chart__judge--stephen-breyer,
-        .uit-chart__judge--samuel-alito,
-        .uit-chart__judge--sonia-sotomayor,
-        .uit-chart__judge--elena-kagan,
-        .uit-chart__judge--neil-gorsuch,
-        .uit-chart__judge--anthony-kennedy {
-            .uit-chart__judge-name,
-            .uit-chart__judge-image {
-                opacity: .3;
-            }
-
-            .uit-chart__judge-bar {
-                fill: $c-light-grey;
-                transition: fill .4s ease-in;
-                opacity: 0;
-                transition: opacity 0.3s ease-in;
-            }
-
-            .uit-chart__judge-served {
-                fill: lighten($c-light-red, 30%);
-                transition: opacity .5s ease-in;
-            }
-        }
-
-        .uit-chart__judge--anthony-kennedy, {
-            .uit-chart__judge-served {
-                fill: $c-light-grey;
-            }
-        }
-
-        .uit-chart__key--served {
+        #forest_pic {
             opacity: 1;
+            transition: 0.4s linear all;
         }
+        #acres_2018 {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+    }
 
-        .uit-chart__key--age {
+    &.is-2100 {
+        #dead_trees_pic {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+        #forest_pic {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+        #acres_2100 {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+    }
+
+    &.is-worst {
+        #dead_trees_pic {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+        #forest_pic {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+        #acres_2100 {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+        #worst_pic {
+            opacity: 1;
+            transition: 0.4s linear all;
+        }
+    }
+
+    &.is-beach{
+    #dead_trees_pic {
+        opacity: 1;
+        transition: 0.4s linear all;
+    }
+    #forest_pic {
+        opacity: 1;
+        transition: 0.4s linear all;
+    }
+    #acres_2100 {
+        opacity: 1;
+        transition: 0.4s linear all;
+    }
+    #worst_pic {
+        opacity: 1;
+        transition: 0.4s linear all;
+    }
+        #beaches {
             opacity: 0;
+            transition: 0.4s linear all;
         }
     }
+}
 
-    &.is-midterms {
-        .uit-chart__reference--midterms {
-            opacity: 1;
-        }
-    }
+#cali_state {
+    width: 60vw;
+    height: 70vh;
+}
+
+#top-image {
+    transition: .8s linear all;
+}
+
+.uit-chart-image {
+    transition: .2s linear all;
+    position: absolute;
 }

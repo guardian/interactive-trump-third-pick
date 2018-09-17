@@ -19,7 +19,7 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-            fs.writeFileSync(path + '/' + fileName + '.js', buf.toString().replace(/\{\{ path \}\}/g, absolutePath).replace(/\{\{path\}\}/g, absolutePath));
+            fs.writeFileSync(path + '/' + fileName + '.js', buf.toString().replace(/@@assetPath@@/g, absolutePath));
             isDone = true;
             console.log('Updated ' + fileName + ' js!');
         });
@@ -41,7 +41,7 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-            fs.writeFileSync(path + '/main.css', result.css.toString('utf8').replace(/\{\{ path \}\}/g, absolutePath).replace(/\{\{path\}\}/g, absolutePath));
+          fs.writeFileSync(path + '/main.css', result.css.toString('utf8').replace(/@@assetPath@@/g, absolutePath));
             isDone = true;
             console.log('Updated css!');
         });
@@ -51,7 +51,7 @@ module.exports = {
         });
     },
 
-    html: function(path, data) {
+    html: function(path, data, absolutePath) {
         fs.removeSync(path + '/main.html');
 
         handlebars.registerHelper('if_eq', function(a, b, opts) {
@@ -80,7 +80,6 @@ module.exports = {
                     data['index'] = i;
                     output += block.fn(i, {data: data});
                 }
-
                 return output;
         });
 
@@ -116,8 +115,11 @@ module.exports = {
             handlebars.registerPartial(name, template);
         });
 
-        fs.writeFileSync(path + '/main.html', template(data));
+        //fs.writeFileSync(path + '/main.html', template(data));
+        fs.writeFileSync(path + '/main.html', template(data).replace(/@@assetPath@@/g, absolutePath));
+
         console.log('Updated html!');
+        //console.log(absolutePath);
     },
 
     static: function(path) {
@@ -145,4 +147,4 @@ module.exports = {
 
         console.log('Built page preview');
     }
-} 
+}
