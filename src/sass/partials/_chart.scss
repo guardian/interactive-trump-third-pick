@@ -1,21 +1,31 @@
 .uit-chart {
-    padding: 24px 0;
+    padding: 5px 0;
     position: relative;
+    margin-bottom: 500px;
 
     &.is-fixed {
         position: fixed;
-        top: 5vh;
+        width:100%;
+        height: 100%;
+        top: -3vh;
         width: 620px;
         max-width: calc(100% - 20px);
+        max-height: calc(100% - 20px);
 
         @include mq(mobileLandscape) {
             max-width: calc(100% - 40px);
         }
 
         @include mq(tablet) {
-            width: 60vw;
-            height: 80vh;
-            top: 5vh;
+            top: 0vh;
+        }
+
+        @include mq(leftCol) {
+            top: 0vh;
+        }
+
+        @include mq(leftCol) {
+            top: 3vh;
         }
     }
 
@@ -24,182 +34,134 @@
     }
 }
 
-.uit-chart__judge--anthony-kennedy {
-    .uit-chart__judge-bar{
-        fill: $c-dark-grey;
+#top-image {
+    transition: .7s linear all;
+    transition-timing-function: ease-out;
+}
+
+.uit-chart-image {
+    transition: .7s linear all;
+    position: absolute;
+    transition-timing-function: ease-out;
+    width: 90vw;
+    height: 90vh;
+
+
+    @include mq(tablet) {
+        width: 60vw;
+        height: 80vh;
     }
+
+    @include mq(leftCol) {
+        width: 40vw;
+        height: 80vh;
+    }
+
+    @include mq(wide) {
+        width: 30vw;
+        height: 60vh;
+    }
+}
+
+strong {
+    color: #c70000;
 }
 
 .uit-chart__keys {
     padding: 0;
     margin: 0;
     list-style: none;
-    height: 24px;
 }
 
 .uit-chart__key {
-    position: absolute;
-    left: 0;
     font-family: 'Guardian Sans Web';
     font-size: 16px;
     color: $c-black;
     padding: 0 12px 0 10px;
-    float: left;
     transition: 0.3s opacity linear;
+    display: block;
+}
 
-    &:before {
+.uit-chart__key--first {
+    .key-color {
         content: '';
         position: absolute;
         left: 0;
-        top: .25em;
         width: 6px;
         height: 1em;
         border-radius: 2px;
-        background-color: $c-red;
+        background-color: #503112;
     }
 }
 
-// steps
-.uit-chart {
-    #forest_pic, #dead_trees_pic, #recover, #acres_2018, #acres_2100, #worst_pic {
-        opacity: 0;
-        transition: 0.4s linear all;
+.uit-chart__key--second {
+    .key-color {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 6px;
+        height: 1em;
+        border-radius: 2px;
+        background-color: #ED5520;
     }
+}
 
-    &.is-introduction {
-        #forest_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
+.uit-chart__key--third {
+    .key-color {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 6px;
+        height: 1em;
+        border-radius: 2px;
+        background-color: #FBAA2B;
     }
+}
 
-    &.is-dead {
-        #dead_trees_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #forest_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-    }
-
-    &.is-recover {
-        #recover {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #forest_pic,
-        #dead_trees_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-    }
-
-    &.is-temp {
-        #recover,
-        #forest_pic,
-        #dead_trees_pic {
-            opacity: 0;
-            transition: 0.4s linear all;
-        }
-        #cali_state polyline,
-        #cali_state path,
-        #cali_state g, {
-            fill: #ff7f0f;
-            transition: 0.4s linear all;
-        }
-        #_067_Sacramento {
-            opacity: 1;
-            transition: 0.4s linear all;
-            fill: #c70000;
-            stroke: #c70000;
+.is-people {
+    .uit-chart__key--first {
+        .key-color {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 6px;
+            height: 1em;
+            border-radius: 2px;
+            background-color: #DD8122;
         }
     }
 
-    &.is-2018 {
-        #dead_trees_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #forest_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #acres_2018 {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-    }
-
-    &.is-2100 {
-        #dead_trees_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #forest_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #acres_2100 {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-    }
-
-    &.is-worst {
-        #dead_trees_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #forest_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #acres_2100 {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-        #worst_pic {
-            opacity: 1;
-            transition: 0.4s linear all;
-        }
-    }
-
-    &.is-beach{
-    #dead_trees_pic {
-        opacity: 1;
-        transition: 0.4s linear all;
-    }
-    #forest_pic {
-        opacity: 1;
-        transition: 0.4s linear all;
-    }
-    #acres_2100 {
-        opacity: 1;
-        transition: 0.4s linear all;
-    }
-    #worst_pic {
-        opacity: 1;
-        transition: 0.4s linear all;
-    }
-        #beaches {
-            opacity: 0;
-            transition: 0.4s linear all;
+    .uit-chart__key--second {
+        .key-color {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 6px;
+            height: 1em;
+            border-radius: 2px;
+            background-color: #CDC933;
         }
     }
 }
 
-#cali_state {
-    width: 60vw;
-    height: 70vh;
+
+.uit-chart__keys {
+    opacity: 0;
+}
+.uit-chart__key--first{
+    opacity: 1;
 }
 
-#top-image {
-    transition: .8s linear all;
+.uit-chart__key--second{
+    opacity: 1;
 }
 
-.uit-chart-image {
-    transition: .2s linear all;
-    position: absolute;
+.uit-chart__key--third{
+    opacity: 1;
+}
+
+.uit-chart-city-name {
+    background-color: #c70000;
+    color: #fff;
+    opacity: 0;
 }

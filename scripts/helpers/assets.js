@@ -19,7 +19,8 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-            fs.writeFileSync(path + '/' + fileName + '.js', buf.toString().replace(/@@assetPath@@/g, absolutePath));
+            fs.writeFileSync(path + '/' + fileName + '.js', buf.toString()
+            .replace(/@@assetPath@@/g, absolutePath));
             isDone = true;
             console.log('Updated ' + fileName + ' js!');
         });
@@ -41,7 +42,8 @@ module.exports = {
             if (err) {
                 console.log(err);
             }
-          fs.writeFileSync(path + '/main.css', result.css.toString('utf8').replace(/@@assetPath@@/g, absolutePath));
+          fs.writeFileSync(path + '/main.css', result.css.toString('utf8')
+          .replace(/@@assetPath@@/g, absolutePath));
             isDone = true;
             console.log('Updated css!');
         });
@@ -116,7 +118,8 @@ module.exports = {
         });
 
         //fs.writeFileSync(path + '/main.html', template(data));
-        fs.writeFileSync(path + '/main.html', template(data).replace(/@@assetPath@@/g, absolutePath));
+        fs.writeFileSync(path + '/main.html', template(data)
+        .replace(/@@assetPath@@/g, absolutePath));
 
         console.log('Updated html!');
         //console.log(absolutePath);

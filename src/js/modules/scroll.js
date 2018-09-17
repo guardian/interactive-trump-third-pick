@@ -6,29 +6,17 @@ module.exports =  {
         this.bindings();
         this.getSteps();
         this.onScroll();
+        $('#first-image')
+        .attr('src', '@@assetPath@@/assets/forestry.png');
+        $('#second-image')
+        .attr('src', '@@assetPath@@/assets/limited_water.png');
+        $('#third-image')
+        .attr('src', '@@assetPath@@/assets/dead_trees.png');
+        $('#fourth-image')
+        .attr('src', '@@assetPath@@/assets/people.png');
     },
 
-    //load SVGS
     loadAssets: function() {
-        /*
-        $.ajax({
-        url: '@@assetPath@@/assets/chart.svg',
-        type: 'GET',
-        dataType: 'text',
-        success: function(data) {
-        $('.uit-chart').append(data);
-    }.bind(this)
-});
-
-$.ajax({
-url: '@@assetPath@@/assets/dead_trees.png',
-type: 'GET',
-dataType: 'text',
-success: function(data) {
-$('.uit-chart').append(data);
-}.bind(this)
-});
-*/
 },
 
 getSteps: function() {
@@ -62,7 +50,7 @@ updateValues: function() {
 fixMap: function() {
     if (windowTop > $('.uit-chart__point').offset().top - this.percentageOfHeight(1)) {
         $('.uit-chart').addClass('is-fixed');
-        $('.uit-chart__point').attr('style', 'margin-bottom: 400px');
+        $('.uit-chart__point').attr('style', 'margin-bottom: 550px');
     } else {
         $('.uit-chart').removeClass('is-fixed');
         $('.uit-chart__point').removeAttr('style');
@@ -73,7 +61,7 @@ setStep: function() {
     var stepToShow = null;
 
     $('.uit-step').each(function(i, el) {
-        if (windowTop > $(el).offset().top - this.percentageOfHeight(80)) {
+        if (windowTop > $(el).offset().top - this.percentageOfHeight(90)) {
             stepToShow = $(el).data('step');
         }
     }.bind(this));
@@ -88,19 +76,54 @@ highlightStates: function(currentStep) {
         }
         $('.uit-chart').addClass('is-' + currentStep);
         window.currentStep = currentStep;
-        $('#top-image')
-        .css('opacity', '0');
-        setTimeout(
-            function(){
-                $('#top-image')
-                .attr('src', '../../assets/' + currentStep + '.png')
-                .css('opacity', '1');
-            }, 300);
+        switch (currentStep) {
+            case 'forestry':
+            $('#first-image').css('opacity', '1');
+            $('.uit-chart__keys').css('opacity', '0');
+            $('.uit-chart-city-name').css('opacity', '0');
+            break
+
+            case 'limited_water':
+            $('#first-image').css('opacity', '0');
+            $('#second-image').css('opacity', '1');
+            $('.uit-chart__keys').css('opacity', '0');
+            $('.uit-chart-city-name').css('opacity', '0');
+
+            break
+
+            case 'dead_trees':
+            $('#first-image').css('opacity', '0');
+            $('#second-image').css('opacity', '0');
+            $('#third-image').css('opacity', '1');
+            $('.uit-chart__keys').css('opacity', '1');
+            $('.uit-chart-city-name').css('opacity', '0');
+            $('.uit-chart__key--first')
+            .html('<span class="key-color"> </span>40+ dead trees per acre');
+            $('.uit-chart__key--second')
+            .html('<span class="key-color"> </span>15-40 dead trees per acre');
+            $('.uit-chart__key--third')
+            .css('opacity', '1');
+            break
+
+            case 'people':
+            $('#first-image').css('opacity', '0');
+            $('#second-image').css('opacity', '0');
+            $('#third-image').css('opacity', '0');
+            $('#fourth-image').css('opacity', '1');
+            $('.uit-chart-city-name').css('opacity', '1');
+            $('.uit-chart__key--first')
+            .html('<span class="key-color"> </span>Very high risk');
+            $('.uit-chart__key--second')
+            .html('<span class="key-color"> </span>High risk');
+            $('.uit-chart__key--third')
+            .css('opacity', '0');
+            break
+        }
         }
     },
 
-percentageOfHeight: function(percentage) {
-    return (windowHeight / 100) * percentage;
-},
+    percentageOfHeight: function(percentage) {
+        return (windowHeight / 100) * percentage;
+    },
 
 };
