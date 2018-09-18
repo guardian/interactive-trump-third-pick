@@ -13,7 +13,11 @@ module.exports =  {
         $('#third-image')
         .attr('src', '@@assetPath@@/assets/dead_trees.png');
         $('#fourth-image')
-        .attr('src', '@@assetPath@@/assets/people.png');
+        .attr('src', '@@assetPath@@/assets/people1.png');
+        $('#fifth-image')
+        .attr('src', '@@assetPath@@/assets/people2.png');
+        $('#fifth-image').css('opacity', '0');
+        $('#fourth-image').css('opacity', '0');
     },
 
     loadAssets: function() {
@@ -79,6 +83,8 @@ highlightStates: function(currentStep) {
         switch (currentStep) {
             case 'forestry':
             $('#first-image').css('opacity', '1');
+            $('#second-image').css('opacity', '0');
+            $('#fifth-image').css('opacity', '0');
             $('.uit-chart__keys').css('opacity', '0');
             $('.uit-chart-city-name').css('opacity', '0');
             break
@@ -86,17 +92,19 @@ highlightStates: function(currentStep) {
             case 'limited_water':
             $('#first-image').css('opacity', '0');
             $('#second-image').css('opacity', '1');
+            $('#fifth-image').css('opacity', '0');
             $('.uit-chart__keys').css('opacity', '0');
             $('.uit-chart-city-name').css('opacity', '0');
-
             break
 
             case 'dead_trees':
             $('#first-image').css('opacity', '0');
             $('#second-image').css('opacity', '0');
             $('#third-image').css('opacity', '1');
+            $('#fifth-image').css('opacity', '0');
             $('.uit-chart__keys').css('opacity', '1');
             $('.uit-chart-city-name').css('opacity', '0');
+
             $('.uit-chart__key--first')
             .html('<span class="key-color"> </span>40+ dead trees per acre');
             $('.uit-chart__key--second')
@@ -105,12 +113,28 @@ highlightStates: function(currentStep) {
             .css('opacity', '1');
             break
 
-            case 'people':
+            case 'people1':
             $('#first-image').css('opacity', '0');
             $('#second-image').css('opacity', '0');
             $('#third-image').css('opacity', '0');
             $('#fourth-image').css('opacity', '1');
-            $('.uit-chart-city-name').css('opacity', '1');
+            $('#fifth-image').css('opacity', '0');
+            $('.uit-chart-city-name').css('opacity', '0');
+            $('.uit-chart__key--first')
+            .html('<span class="key-color"> </span>Very high risk');
+            $('.uit-chart__key--second')
+            .html('<span class="key-color"> </span>High risk');
+            $('.uit-chart__key--third')
+            .css('opacity', '0');
+            break
+
+            case 'people2':
+            $('#first-image').css('opacity', '0');
+            $('#second-image').css('opacity', '0');
+            $('#third-image').css('opacity', '0');
+            $('#fourth-image').css('opacity', '0');
+            $('#fifth-image').css('opacity', '1');
+            $('.uit-chart-city-name').css('opacity', '0');
             $('.uit-chart__key--first')
             .html('<span class="key-color"> </span>Very high risk');
             $('.uit-chart__key--second')

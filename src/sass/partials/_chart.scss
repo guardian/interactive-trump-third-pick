@@ -1,5 +1,5 @@
 .uit-chart {
-    padding: 5px 0;
+    padding-top: 20px;
     position: relative;
     margin-bottom: 500px;
 
@@ -43,8 +43,8 @@
     transition: .7s linear all;
     position: absolute;
     transition-timing-function: ease-out;
-    width: 90vw;
-    height: 90vh;
+    width: 100vw;
+    height: 70vh;
 
 
     @include mq(tablet) {
