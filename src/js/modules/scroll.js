@@ -18,6 +18,8 @@ module.exports =  {
         .attr('src', '@@assetPath@@/assets/people2.png');
         $('#fifth-image').css('opacity', '0');
         $('#fourth-image').css('opacity', '0');
+        $('#second-image').css('opacity', '0');
+        $('#fifth-image').css('opacity', '0');
     },
 
     loadAssets: function() {
@@ -119,6 +121,7 @@ highlightStates: function(currentStep) {
             $('#third-image').css('opacity', '0');
             $('#fourth-image').css('opacity', '1');
             $('#fifth-image').css('opacity', '0');
+            $('.uit-chart__keys').css('opacity', '1');
             $('.uit-chart-city-name').css('opacity', '0');
             $('.uit-chart__key--first')
             .html('<span class="key-color"> </span>Very high risk');
@@ -134,11 +137,12 @@ highlightStates: function(currentStep) {
             $('#third-image').css('opacity', '0');
             $('#fourth-image').css('opacity', '0');
             $('#fifth-image').css('opacity', '1');
+            $('.uit-chart__keys').css('opacity', '1');
             $('.uit-chart-city-name').css('opacity', '0');
             $('.uit-chart__key--first')
-            .html('<span class="key-color"> </span>Very high risk');
+            .html('<span class="key-color"> </span>1000+ people per sq. mile');
             $('.uit-chart__key--second')
-            .html('<span class="key-color"> </span>High risk');
+            .html('<span class="key-color"> </span>50+ people per sq. mile');
             $('.uit-chart__key--third')
             .css('opacity', '0');
             break
